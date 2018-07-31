@@ -2,11 +2,17 @@
 
 CC=g++
 CFLAGS=-c -Wall
-DEBUGC=-g -Wall -o testexec
-OUTPUTFILE=gridexec
+DEBUGFLAGS=-g -Wall
+TESTOUTPUT=testexec.out
+RUNGDB=gdb $(TESTOUPUT)
+OUTPUTFILE=gridexec.out
 
 
 all: gridgraph
+
+debug:  gridgraph.o gridmain.o
+	$(CC) $(DEBUGFLAGS) gridgraph.o gridmain.o -o $(TESTOUTPUT)
+	$(RUNGDB) $(TESTOUTPUT)	
 
 gridgraph: gridgraph.o gridmain.o
 	$(CC) gridgraph.o gridmain.o -o $(OUTPUTFILE)
@@ -18,7 +24,8 @@ gridmain.o: gridmain.cpp
 	$(CC) $(CFLAGS) gridmain.cpp
 
 clean:
-	rm *.o $(OUTPUTFILE)
+	rm *.o *.out
+
 
 
 
