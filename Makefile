@@ -6,6 +6,7 @@ DEBUGFLAGS=-g -Wall
 TESTOUTPUT=testexec.out
 RUNGDB=gdb $(TESTOUPUT)
 OUTPUTFILE=gridexec.out
+MEMTEST=valgrind --leak-check=full
 
 
 all: gridgraph
@@ -13,6 +14,10 @@ all: gridgraph
 debug:  gridgraph.o gridmain.o
 	$(CC) $(DEBUGFLAGS) gridgraph.o gridmain.o -o $(TESTOUTPUT)
 	$(RUNGDB) $(TESTOUTPUT)	
+
+memtest: gridgraph.o gridmain.o
+	$(CC) gridgraph.o gridmain.o -o $(OUTPUTFILE)
+	$(MEMTEST) ./$(OUTPUTFILE)
 
 gridgraph: gridgraph.o gridmain.o
 	$(CC) gridgraph.o gridmain.o -o $(OUTPUTFILE)
