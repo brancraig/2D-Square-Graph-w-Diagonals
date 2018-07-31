@@ -1,3 +1,5 @@
+/* Brandon Craig | brandonjcraig00@gmail.com */
+
 #include "gridgraph.h"
 
 

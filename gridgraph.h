@@ -1,13 +1,10 @@
-/* Brandon Craig | bracraig "at" pdx "dot" edu 
- * Words Buster */
+/* Brandon Craig | brandonjcraig00@gmail.com */
+
 
 #include <cstddef>
 #include <iostream>
 
-#include "../Substringary/substringary.h"
 
-#define PROTOTYPE_ARGUMENTS string, Substringary &
-#define FUNCTION_CALL_ARGUMENTS string test_string, Substringary & dict
 
 using namespace std;
 
@@ -25,7 +22,7 @@ class vertex
         virtual void display(void) = 0;
         virtual void init(const unsigned int & row_size, const unsigned int & column_size, vertex ** grid) = 0;
 	
-	virtual void expand(void (*)(vertex *, PROTOTYPE_ARGUMENTS), PROTOTYPE_ARGUMENTS) = 0;
+	virtual void expand() = 0;
 	
 	void set_visited(bool);
 	bool get_visited(void);
@@ -57,7 +54,7 @@ class corner : public vertex
         void display();
         void init(const unsigned int & x_size, const unsigned int & y_size, vertex ** grid);
 
-	void expand(void (*)(vertex *, PROTOTYPE_ARGUMENTS), PROTOTYPE_ARGUMENTS);
+	void expand();
 
     private:
         vertex * vertical_adj;
@@ -73,7 +70,7 @@ class side : public vertex
         void display();
         void init(const unsigned int & x_size, const unsigned int & y_size, vertex ** grid);
 
-	void expand(void (*)(vertex *, PROTOTYPE_ARGUMENTS), PROTOTYPE_ARGUMENTS);
+	void expand();
 
     private:
         vertex * pi_radian1st;
@@ -92,7 +89,7 @@ class center : public vertex
         void display();
         void init(const unsigned int & x_size, const unsigned int & y_size, vertex ** grid);
 
-	void expand(void (*)(vertex *, PROTOTYPE_ARGUMENTS), PROTOTYPE_ARGUMENTS);
+	void expand();
 
     private:
         vertex * right;

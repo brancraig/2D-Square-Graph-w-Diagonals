@@ -1,5 +1,4 @@
-/* Brandon Craig | bracraig "at" pdx "dot" edu 
- * CS441 | Fall 2017 | Portland State University */
+/* Brandon Craig | brandonjcraig00@gmail.com */
 
 
 #include "gridgraph.h"
@@ -351,37 +350,21 @@ bool vertex::get_visited(void)
 }
 
 
-void vertex::expand(void (*function)(vertex *, PROTOTYPE_ARGUMENTS ), FUNCTION_CALL_ARGUMENTS){}
+void vertex::expand(){}
 
-void corner::expand(void (*function)(vertex *, PROTOTYPE_ARGUMENTS), FUNCTION_CALL_ARGUMENTS)
+void corner::expand()
 {
 
-	function(vertical_adj, test_string, dict);
-	function(horizontal_adj, test_string, dict);
-	function(diagonal_adj, test_string, dict);
 	return;
 }
 
-void side::expand(void (*function)(vertex *, PROTOTYPE_ARGUMENTS), FUNCTION_CALL_ARGUMENTS)
+void side::expand()
 {
-	function(pi_radian1st, test_string, dict);
-	function(pi_radian2nd, test_string, dict);
-	function(pi_radian3rd, test_string, dict);
-	function(pi_radian4th, test_string, dict);
-	function(pi_radian5th, test_string, dict);
 	return;
 }
 
-void center::expand(void (*function)(vertex *, PROTOTYPE_ARGUMENTS), FUNCTION_CALL_ARGUMENTS)
+void center::expand()
 {
-	function(right, test_string, dict);
-	function(up_right, test_string, dict);
-	function(up, test_string, dict);
-	function(up_left, test_string, dict);
-	function(left, test_string, dict);
-	function(down_left, test_string, dict);
-	function(down, test_string, dict);
-	function(down_right, test_string, dict);
 	return;
 }
 /* FUNCTION:
